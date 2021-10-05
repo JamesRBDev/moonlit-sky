@@ -1,0 +1,2093 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<muclient>
+
+<!-- INITIALIZATION -->
+
+<plugin
+name         = "Armageddon_Highlights"
+author       = "RiftTalon"
+id           = "40634897a67fe7f920d29c1f"
+language     = "Lua"
+purpose      = "Highlights for combat and communication."
+date_written = "2013-10-22 09:07:42"
+requires     =  "5.06"
+version      =  "3.0"
+>
+<description trim="y">
+<![CDATA[
+Highlights important text.
+]]>
+</description>
+</plugin>
+
+<!-- TRIGGERS -->
+
+<triggers>
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="*You follow the*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="You are famished*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="You are starving."
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="You are now wanted!"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="14"
+	enabled="y"
+	match="You lost your concentration!"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="You notice*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="You suffer from dehydration*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="6"
+	enabled="y"
+	match="*anakore has arrived*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*and knocks you over*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="*gives you*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="6"
+	enabled="y"
+	match="*gortok has arrived*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="14"
+	enabled="y"
+	match="You're now wanted!"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="6"
+	enabled="y"
+	match="*halfling has arrived*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*heroically darts in front of you, and knocks you out of the way!"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*arrow flies in from*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="1"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bYour psychic barrier is crushed\!\b"
+	regexp="y"
+	repeat="y"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*leaps in front of you, protecting you from harm!"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="*asks you,*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="3"
+	enabled="y"
+	match="^You leap in front of*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="6"
+	enabled="y"
+	match="*bahamet has arrived*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="3"
+	enabled="y"
+	match="*begins guarding you."
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*but fumble and drop your own weapon instead*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="9"
+	enabled="y"
+	match="*looks really sick, and shivers uncomfortably.*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="6"
+	enabled="y"
+	match="*mekillot has arrived*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*nimbly avoids your bash*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="5"
+	enabled="y"
+	match="*out of character*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="6"
+	enabled="y"
+	match="*cyclops has arrived*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="3"
+	enabled="y"
+	match="*protects you from harm!"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*collapses and crumbles to the ground."
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*from your hands.*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="6"
+	enabled="y"
+	match="*gith has arrived*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="6"
+	enabled="y"
+	match="*raptor has arrived*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*refuses to move*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bYou fail the rescue\.\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="5"
+	enabled="y"
+	match="*rolls a pair*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bYou fail the rescue\.\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*rolls with your charge*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="17"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bat you\b"
+	regexp="y"
+	repeat="n"
+	sequence="90"
+	other_text_colour="white"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="17"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bto you\b"
+	regexp="y"
+	repeat="n"
+	sequence="90"
+	other_text_colour="white"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="*says to you,*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="3"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bcharge into the fight\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="6"
+	enabled="y"
+	match="*scrab has arrived*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="4"
+	enabled="y"
+	match="*sends you a telepathic message:*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="3"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bdarts in front of you\, and knocks you out of the way\!\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*sends you sprawling*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="3"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bdarts in front of you\, and knocks you out of the way\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*stops attacking*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bfail the rescue\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*stops fighting you, and begins fighting*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="5"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bis not fighting anyone\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bunspeakable damage\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*stops fighting*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="6"
+	enabled="y"
+	match="*tarantula has arrived*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="3"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\brescues the\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="6"
+	enabled="y"
+	match="*templar has arrived*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="6"
+	enabled="y"
+	match="*templar walks in from the*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="6"
+	enabled="y"
+	match="*templar runs in from the*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="1"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bthe bluish dwarf\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*throws you from its back!"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bthrows\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*too fast for you, so you lag behind.*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\btries to protect\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\btries unsuccessfully to dart in front\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="*your seat,*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="*your table,*says*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="4"
+	enabled="y"
+	match="A foreign presence contacts your mind."
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="4"
+	enabled="y"
+	match="Their mind is present but sluggish, likely they are asleep."
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="9"
+	enabled="y"
+	match="* falls in behind you."
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="9"
+	enabled="y"
+	match="*A loud bell chimes, echoing across the city.*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="5"
+	enabled="y"
+	match="A staff member sends:"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*But it also had a strange taste!*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="17"
+	enabled="y"
+	match="*has arrived*"
+	sequence="120"
+	other_text_colour="white"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="6"
+	enabled="y"
+	match="*You are wanted in:*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="*You feel burning poison in your blood, and suffer.*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="You are dehydrated*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="1"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="\bArmageddon\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="1"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="\bZalanthas\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="3"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="\bOPEN\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="\bCLOSED\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	match="You have been idle too long, please reconnect when you are back."
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bdead\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="3"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\balive\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\banakore\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bbahamet\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bbraxat\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bcilops\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bduskhorn\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bgaj\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bgormi\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bgurth\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bjakhal\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bkank\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bmagera\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bquirri\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\brat\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bsand bat\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bsilt flyer\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bsilt lizard\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\btarantula\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bturaal\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bwar beetle\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bangk\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bbaltha\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bcarru\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bcockroach\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\berdlu\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bgeth\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bgorthok\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bgwoshi\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bjozhal\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bkiyet lion\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bmekillot\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\brantarri\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\britikki\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bscorpion\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bsilt hawk\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bsunback\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\btembo\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bverrin hawk\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bwezer\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bankheg\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bbamuk\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bchalton\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bdujat worm\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bescru\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bgimpka rat\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bgoudra\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\binix\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bkagor\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bkryl\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bmerch bat\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\braptor\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\broc\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bscrab\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bsilt horror\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bsunlon\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\btree arach\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bvestric\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bauroch\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bbarakhan lizard\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bcheotan\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bdurrit\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bfire ant\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bgnu\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bgreth\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\birrig\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bkalich\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bkylori\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bplains ox\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bratlon\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bsalt worm\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bshik\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bskeet\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\btandu\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\btregil\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bvulture\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\byompar\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bgortok\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\ballanak\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\btuluk\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bred storm\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bred storm village\b"
+	regexp="y"
+	repeat="y"
+	sequence="80"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bred storm east\b"
+	regexp="y"
+	repeat="y"
+	sequence="80"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bgol krathu\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bsalt flats\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bvrun driath\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bsalt flats\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\btablelands\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bscrub plains\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bluir's outpost\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bt'zai byn\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bsea of eternal dust\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="y"
+	match="\bgrey forest\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="You move perilously close to a gaping chasm*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="You move perilously close to a treacherous drop*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="The ground crumbles and falls away treacherously*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="You move dangerously close to a plunging drop*"
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="You find * and pick it up."
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	match="You are very thirsty."
+	sequence="100"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="11"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="(\w+ \w+|\w+)\s+\(novice\)"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="2"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="(\w+ \w+|\w+)\s+\(journeyman\)"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="1"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="(\w+ \w+|\w+)\s+\(advanced\)"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="(\w+ \w+|\w+)\s+\(master\)"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="11"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="You look around, but don't find any *."
+	regexp="n"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="11"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="It is very light."
+	regexp="n"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="11"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="You work at getting the blood out of *."
+	regexp="n"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="3"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="\bRETURN\b"
+	regexp="y"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="3"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="[MORE]"
+	regexp="n"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="11"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="You fail to repair * with *."
+	regexp="n"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="3"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="You partially repair * by salvaging bits off of *."
+	regexp="n"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="7"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="You slip and do further damage to *."
+	regexp="n"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="9"
+	enabled="y"
+	ignore_case="n"
+	keep_evaluating="y"
+	match="* crumples to the ground."
+	regexp="n"
+	repeat="y"
+	sequence="90"
+	>
+	</trigger>
+	
+	<trigger
+	custom_colour="11"
+	enabled="y"
+	ignore_case="y"
+	keep_evaluating="n"
+	match="nothing."
+	regexp="n"
+	repeat="n"
+	sequence="90"
+	>
+	</trigger>
+	
+	<!--<trigger
+	custom_colour="3"
+	enabled="y"
+	match="^.+ \[.+\]$"
+	regexp="y"
+	sequence="100"
+	>
+	</trigger>-->
+</triggers>
+
+</muclient>

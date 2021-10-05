@@ -1,0 +1,184 @@
+<?xml version= "1.0" encoding= "iso-8859-1"?>
+<!DOCTYPE muclient>
+<muclient>
+
+<!-- INITIALIZATION -->
+
+<plugin
+name         = "Armageddon_Sounds"
+author       = "RiftTalon"
+id           = "b18f730f925592ed3074e989"
+language     = "Lua"
+purpose      = "Adds a list of sounds to Armageddon to make the experience more immersive."
+date_written = "2017-07-23 18:34:30"
+requires     = "5.06"
+version      = "3.0"
+>
+<description trim="y">
+<![CDATA[
+Adds sounds to specific events and actions.
+]]>
+</description>
+</plugin>
+
+<include name="constants.lua"/>
+
+<!-- TRIGGERS -->
+
+<triggers>
+	<trigger
+	enabled         = "y"
+	group           = "Sounds"
+	ignore_case     = "y"
+	keep_evaluating = "y"
+	match           = "*you feel burning poison in your blood, and suffer.*"
+	sequence        = "100"
+	sound           = "sounds\poisoned.wav"
+	>
+	</trigger>
+	
+	<trigger
+	enabled         = "y"
+	group           = "Sounds"
+	ignore_case     = "y"
+	keep_evaluating = "y"
+	match           = "*you eat your*"
+	sequence        = "100"
+	sound           = "sounds\eat.wav"
+	>
+	</trigger>
+	
+	<trigger
+	enabled         = "y"
+	group           = "Sounds"
+	ignore_case     = "y"
+	keep_evaluating = "y"
+	match           = "*you give * coins*"
+	sequence        = "100"
+	sound           = "sounds\sids.wav"
+	>
+	</trigger>
+	
+	<trigger
+	enabled         = "y"
+	group           = "Sounds"
+	ignore_case     = "y"
+	keep_evaluating = "y"
+	match           = "*gives you * coins*"
+	sequence        = "100"
+	sound           = "sounds\sids.wav"
+	>
+	</trigger>
+	
+	<trigger
+	enabled         = "y"
+	group           = "Sounds"
+	ignore_case     = "y"
+	keep_evaluating = "y"
+	match           = "*you let out a big yawn*"
+	sequence        = "100"
+	sound           = "sounds\yawn.wav"
+	>
+	</trigger>
+	
+	<trigger
+	enabled         = "y"
+	group           = "Sounds"
+	ignore_case     = "y"
+	keep_evaluating = "y"
+	match           = "*you go to sleep*"
+	sequence        = "100"
+	sound           = "sounds\yawn.wav"
+	>
+	</trigger>
+	
+	<trigger
+	enabled         = "y"
+	group           = "Sounds"
+	ignore_case     = "y"
+	keep_evaluating = "y"
+	match           = "*you take a sip of*"
+	sequence        = "100"
+	sound           = "sounds\drink.wav"
+	>
+	</trigger>
+	
+	<trigger
+	enabled         = "y"
+	group           = "Sounds"
+	ignore_case     = "y"
+	keep_evaluating = "y"
+	match           = "*you * but * gets in the way*"
+	sequence        = "100"
+	sound           = "sounds\deflect.wav"
+	>
+	</trigger>
+	
+	<trigger
+	enabled         = "y"
+	group           = "Sounds"
+	ignore_case     = "y"
+	keep_evaluating = "y"
+	match           = "*you * blow is deftly deflected by*"
+	sequence        = "100"
+	sound           = "sounds\deflect.wav"
+	>
+	</trigger>
+	
+	<trigger
+	enabled         = "y"
+	group           = "Sounds"
+	ignore_case     = "y"
+	keep_evaluating = "y"
+	match           = "*you*is absorbed by*"
+	sequence        = "100"
+	sound           = "sounds\deflect.wav"
+	>
+	</trigger>
+	
+	<trigger
+	enabled         = "y"
+	group           = "Sounds"
+	ignore_case     = "y"
+	keep_evaluating = "y"
+	match           = "*you attack*"
+	sequence        = "100"
+	sound           = "sounds\attack.wav"
+	>
+	</trigger>
+	
+	<trigger
+	enabled         = "y"
+	group           = "Sounds"
+	ignore_case     = "y"
+	keep_evaluating = "y"
+	match           = "*blocks your attack*"
+	sequence        = "100"
+	sound           = "sounds\block.wav"
+	>
+	</trigger>
+	
+	<trigger
+	enabled         = "y"
+	group           = "Sounds"
+	ignore_case     = "y"
+	keep_evaluating = "y"
+	match           = "*you deftly block*"
+	sequence        = "100"
+	sound           = "sounds\block.wav"
+	>
+	</trigger>
+	
+	<trigger
+	enabled         = "y"
+	group           = "Sounds"
+	ignore_case     = "y"
+	keep_evaluating = "y"
+	match           = "*you begin searching the area intently*"
+	sequence        = "100"
+	sound           = "sounds\forage.wav"
+	>
+	</trigger>
+</triggers>
+
+</muclient>

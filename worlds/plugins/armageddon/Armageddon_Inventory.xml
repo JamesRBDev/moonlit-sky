@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE muclient>
+<muclient>
+
+<!-- INITIALIZATION -->
+
+<plugin
+name         = "Armageddon_Inventory"
+author       = "RiftTalon"
+id           = "8414a044cbf91ebb9415fdc6"
+language     = "Lua"
+purpose      = "Shows an inventory widget."
+date_written = "2018-07-07 16:56"
+requires     = "5.06"
+version      = "3.0"
+>
+<description trim="y">
+<![CDATA[
+Adds an inventory widget.
+]]>
+</description>
+</plugin>
+
+<!-- TRIGGERS -->
+
+<triggers>
+	<trigger
+	enabled="y"
+	match="You are carrying:"
+	send_to="12"
+	sequence="60"
+	omit_from_output="y"
+	group="Inventory"
+	>
+	<send>EnableTrigger("inventory_line", true)
+	EnableTrigger("inventory_stopper", true)
+	items = {"You are carrying:"}</send>
+	</trigger>
+
+	<trigger
+	match="*"
+	name="inventory_line"
+	send_to="12"
+	sequence="55"
+	omit_from_output="y"
+	group="Inventory"
+	>
+	<send>table.insert(items, "%0")</send>
+	</trigger>
+
+	<trigger
+	match="(^&lt;)|^$"
+	name="inventory_stopper"
+	regexp="y"
+	send_to="12"
+	sequence="50"
+	omit_from_output="y"
+	group="Inventory"
+	>
+	<send>EnableTrigger("inventory_line", false)
+	EnableTrigger("inventory_stopper", false)
+	UpdateInventory()</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	match="You are using:"
+	send_to="12"
+	sequence="60"
+	omit_from_output="y"
+	group="Inventory"
+	>
+	<send>EnableTrigger("equip_line", true)
+	EnableTrigger("equip_stopper", true)
+	equipped = {"You are using:"}</send>
+	</trigger>
+
+	<trigger
+	match="*"
+	name="equip_line"
+	send_to="12"
+	sequence="55"
+	omit_from_output="y"
+	group="Inventory"
+	>
+	<send>table.insert(equipped, "%0")</send>
+	</trigger>
+
+	<trigger
+	match="^$"
+	name="equip_stopper"
+	regexp="y"
+	send_to="12"
+	sequence="50"
+	omit_from_output="y"
+	group="Inventory"
+	>
+	<send>EnableTrigger("equip_line", false)
+	EnableTrigger("equip_stopper", false)
+	UpdateEquipment()</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You get your * from *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You pick up *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You drop *.*"
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You put your * into *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You give * obsidian coins for *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You eat your *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You drink the *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You cook your meat."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="While trying to cook the meat, you manage to burn it."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You give your * to *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You discard your *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="* gives you his *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="* gives you her *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="* gives you their *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You find * and pick it up."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You put * onto *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You give * in exchange for *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="* takes your key."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You cook the meat."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You dig at the ground, extracting *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You stop using your *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You fit your * over your *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You fasten your * about your *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You fasten your * across your *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You place your * on your *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You fasten your * about your *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You wear your *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You pull your * onto your *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You slip your * on your feet."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You sling your * over your * shoulder."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You place your * on your head."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You fasten your * about your *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You hold *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You stop holding *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You wield *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You draw *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You dust yourself off."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You sheathe *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You unsling *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You sling * across your back."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You brandish your *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You hang your *."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You take hold of * with both hands."
+	send_to="12"
+	sequence="200"
+	group="Inventory"
+	ignore_case="n"
+	>
+	<send>Send('eq') Execute('lua DeleteLines(1)') Send('i') Execute('lua DeleteLines(1)')</send>
+	</trigger>
+</triggers>
+
+<!-- ALIASES -->
+
+<aliases>
+	<alias
+	match="i"
+	enabled="y"
+	group="Inventory"
+	ignore_case="y"
+	sequence="200"
+	omit_from_output="y"
+	>
+	<send>i</send>
+	</alias>
+	
+	<alias
+	match="eq"
+	enabled="y"
+	group="Inventory"
+	ignore_case="y"
+	sequence="200"
+	omit_from_output="y"
+	>
+	<send>eq</send>
+	</alias>
+</aliases>
+
+<!-- SCRIPTS -->
+
+<script><![CDATA[dofile("worlds/plugins/armageddon/scripts/Armageddon_Inventory.lua")]]></script>
+
+</muclient>

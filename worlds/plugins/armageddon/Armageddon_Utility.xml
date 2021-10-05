@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<muclient>
+
+<!-- INITIALIZATION -->
+
+<plugin
+name         = "Armageddon_Utility"
+author       = "RiftTalon"
+id           = "433f8d722d8978dedf1e0688"
+language     = "Lua"
+purpose      = "Adds a good number of utility aliases for pre-made actions."
+date_written = "2018-2-6 11:19:41"
+requires     = "5.06"
+version      = "3.0"
+>
+<description trim="y">
+<![CDATA[
+Adds plenty of utility-based emotes.
+]]>
+</description>
+</plugin>
+
+<include name="constants.lua"/>
+
+<!-- ALIASES -->
+
+<aliases>
+	<alias
+	match       = "lookall"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>look north
+	look east
+	look south
+	look west</send>
+	</alias>
+	
+	<alias
+	match       = "look all"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>look north
+	look east
+	look south
+	look west</send>
+	</alias>
+	
+	<alias
+	match       = "lall"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>look north
+	look east
+	look south
+	look west</send>
+	</alias>
+	
+	<alias
+	match       = "l all"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>look north
+	look east
+	look south
+	look west</send>
+	</alias>
+	
+	<alias
+	match       = "qpsi * *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>contact %1
+	psi %2
+	cease</send>
+	</alias>
+	
+	<alias
+	match       = "grip *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>change hands %1</send>
+	</alias>
+	
+	<alias
+	match       = "switchgrip"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>change hands primary secondary</send>
+	</alias>
+	
+	<alias
+	match       = "qtake * *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>open %2
+	take %1 %2
+	close %2</send>
+	</alias>
+	
+	<alias
+	match       = "qput * *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>open %2
+	put %1 %2
+	close %2</send>
+	</alias>
+	
+	<alias
+	match       = "openlook *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>open %1
+	look in %1</send>
+	</alias>
+	
+	<alias
+	match       = "qlookin *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>open %1
+	look in %1
+	close %1</send>
+	</alias>
+	
+	<alias
+	match       = "qslip * *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>unlatch %2
+	slip %1 %2
+	latch %2</send>
+	</alias>
+	
+	<alias
+	match       = "qpalm * *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>unlatch %2
+	palm %1 %2
+	latch %2</send>
+	</alias>
+	
+	<alias
+	match       = "ass *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>assess %1</send>
+	</alias>
+	
+	<alias
+	match       = "afk*"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>gone%1</send>
+	</alias>
+	
+	<alias
+	match       = "cook *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>craft %1</send>
+	</alias>
+	
+	<alias
+	match       = "stats"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>stat</send>
+	</alias>
+	
+	<alias
+	match       = "place *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>put %1</send>
+	</alias>
+	
+	<alias
+	match       = "mine *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>use pickaxe %1</send>
+	</alias>
+	
+	<alias
+	match       = "discard *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>junk %1</send>
+	</alias>
+	
+	<alias
+	match       = "buywater *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>fill templar %1 water</send>
+	</alias>
+	
+	<alias
+	match       = "stealth"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>sneak
+	hide</send>
+	</alias>
+	
+	<alias
+	match       = "grab *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>take %1</send>
+	</alias>
+	
+	<alias
+	match       = "pickup *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>take %1</send>
+	</alias>
+	
+	<alias
+	match       = "pick up *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>take %1</send>
+	</alias>
+	
+	<alias
+	match       = "equip *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>wear %1</send>
+	</alias>
+	
+	<alias
+	match       = "info *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>assess -v %1</send>
+	</alias>
+	
+	<alias
+	match       = "repair * with *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>repair %1 %2</send>
+	</alias>
+	
+	<alias
+	match       = "give * to *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>give %1 %2</send>
+	</alias>
+	
+	<alias
+	match       = "put * in *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>put %1 %2</send>
+	</alias>
+	
+	<alias
+	match       = "put * into *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>put %1 %2</send>
+	</alias>
+	
+	<alias
+	match       = "put * in to *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>put %1 %2</send>
+	</alias>
+	
+	<alias
+	match       = "take * from *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>take %1 %2</send>
+	</alias>
+	
+	<alias
+	match       = "take * out of *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>take %1 %2</send>
+	</alias>
+	
+	<alias
+	match       = "attributes"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>score</send>
+	</alias>
+	
+	<alias
+	match       = "twogrip"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>change hands primary both</send>
+	</alias>
+	
+	<alias
+	match       = "follow off"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "90"
+	>
+	<send>follow none</send>
+	</alias>
+	
+	<alias
+	match       = "follow *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>stand
+	follow %1</send>
+	</alias>
+
+	<alias
+	match       = "multibuy * *"
+	enabled     = "y"
+	group       = "Utility"
+	ignore_case = "y"
+	sequence    = "100"
+	send_to     ="12"
+	>
+	<send>multiBuy(%1, "%2")</send>
+	</alias>
+</aliases>
+
+<!-- SCRIPTS -->
+
+<script>
+<![CDATA[
+function multiBuy(amount, item) -- (number, string)
+	for i = 1, amount do
+		Send("buy "..item)
+	end
+end
+]]>
+</script>
+
+</muclient>

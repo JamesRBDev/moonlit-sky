@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<muclient>
+
+<!-- INITIALIZATION -->
+
+<plugin
+name         = "Armageddon_Core"
+author       = "RiftTalon"
+id           = "058c091eb4218559d65db947"
+language     = "Lua"
+purpose      = "The framework for the Moonlit Sky Armageddon plugin suite."
+date_written = "2020-3-18 14:56:22"
+requires     = "5.06"
+version      = "3.0"
+>
+<description trim="y">
+<![CDATA[
+Send `mshelp` for help with the commands added by the client.
+]]>
+</description>
+</plugin>
+
+<include name="constants.lua"/>
+
+<!-- ALIASES -->
+
+<aliases>
+	<alias
+	match       = "armasetup"
+	enabled     = "y"
+	group       = "Core"
+	send_to     = "12"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>
+		Send([[prompt PROMPT_%a_%o_%O_%k_%e_LINEONE\\nPROMPT_%E_%A_%w_%h_%H_%t_%T_%v_%V_%m_%M_LINETWO\\nPROMPT_%s_manaoff_%d_LINE3\\n
+		pagelength 100
+		brief combat on
+		brief exits on
+		brief room on]])
+		Note("Input 'armacolors' to set up recommended colors. ANSI/VT100 must be activated in the main menu beforehand.")
+		NoteHr()
+	</send>
+	</alias>
+	
+	<alias
+	match       = "armacolors"
+	enabled     = "y"
+	group       = "Core"
+	send_to     = "12"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>
+		Send([[change color none
+		change color emphasize on
+		change color fg_say 230
+		change color fg_shout 172
+		change color fg_psionics 93
+		change color fg_room_name 118
+		change color fg_room_exits 121
+		change color fg_tell 229
+		change color fg_whisper 117
+		change color fg_ooc 111
+		change color fg_sing 147
+		change color fg_talk 230
+		change color fg_wish 123
+		change color fg_object 229
+		change color fg_char 101
+		change color fg_combat_charhit 124
+		change color fg_combat_charmiss 59
+		change color fg_combat_victhit 130
+		change color fg_combat_victmiss 58
+		change color fg_combat_room 59
+		change color fg_emote 101]])
+		NoteHr()
+	</send>
+	</alias>
+	
+	<alias
+	send_to     = "12"
+	script      = "OnHelp"
+	match       = "mshelp*"
+	enabled     = "y"
+	group       = "Core"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	</alias>
+	
+	<alias
+	match       = "msversion"
+	enabled     = "y"
+	group       = "Core"
+	send_to     = "12"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>Note("Moonlit Sky Client "..GetVersion())</send>
+	</alias>
+</aliases>
+
+<!-- TRIGGERS -->
+
+<triggers>
+	<trigger
+	enabled     = "y"
+	match       = "*Welcome to Armageddon!*"
+	group       = "Core"
+	send_to     = "12"
+	ignore_case = "n"
+	sequence    = "100"
+	>
+	<send>Note("Moonlit Sky Client "..GetVersion())</send>
+	</trigger>
+	
+	<trigger
+	enabled     = "y"
+	match       = "Reconnected."
+	group       = "Core"
+	ignore_case = "n"
+	sequence    = "100"
+	>
+	<send>_</send>
+	</trigger>
+	
+	<trigger
+	enabled     = "y"
+	match       = "Welcome to the world of Zalanthas."
+	group       = "Core"
+	send_to     = "12"
+	ignore_case = "n"
+	sequence    ="100"
+	>
+	<send>
+		Tip("Use the `help` command for information about the game and its commands.")
+		Tip("Use `mshelp` for help with commands native to the Moonlit Sky client.")
+		Tip("")
+		Note("If this is a new character, you must type `wake` to get up, and then `armasetup` to set up the interface.")
+		Send("i")
+		Send("eq")
+	</send>
+	</trigger>
+	
+	<trigger
+	enabled     = "y"
+	match       = "The Gladiator and the Gaj Tavern -- Public Dormitory [W Quit]"
+	group       = "Core"
+	send_to     = "12"
+	ignore_case = "n"
+	sequence    = "100"
+	>
+	<send>Tip("This is a safe area to quit the game. You can do so by typing `quit`.")</send>
+	</trigger>
+	
+	<trigger
+	enabled     = "y"
+	match       = "The Ancient Place of Kings [Quit]"
+	group       = "Core"
+	send_to     = "12"
+	ignore_case = "n"
+	sequence    = "100"
+	>
+	<send>Tip("Type 'look room' to see more information about where you are.")</send>
+	</trigger>
+	
+	<trigger
+	enabled     = "y"
+	match       = "* Starter Shops [*]"
+	group       = "Core"
+	send_to     = "12"
+	ignore_case = "n"
+	sequence    = "100"
+	>
+	<send>Tip("Type 'look room' to see more information about where you are.")</send>
+	</trigger>
+</triggers>
+
+<!-- SCRIPTS -->
+
+<script><![CDATA[dofile("worlds/plugins/armageddon/scripts/Armageddon_Core.lua")]]></script>
+
+</muclient>

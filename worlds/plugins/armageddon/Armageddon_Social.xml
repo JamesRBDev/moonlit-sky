@@ -1,0 +1,291 @@
+<?xml version= "1.0" encoding= "iso-8859-1"?>
+<!DOCTYPE muclient>
+<muclient>
+
+<!-- INITIALIZATION -->
+
+<plugin
+name         = "Armageddon_Social"
+author       = "RiftTalon"
+id           = "0690dc470c4a17947315910d"
+language     = "Lua"
+purpose      = "Adds a myriad of social aliases for pre-made emotes."
+date_written = "2017-11-24 16:19:41"
+requires     = "5.06"
+version      = "3.0"
+>
+<description trim="y">
+<![CDATA[
+Adds plenty of roleplay-based emotes.
+]]>
+</description>
+</plugin>
+
+<include name="constants.lua"/>
+
+<!-- ALIASES -->
+
+<aliases>
+	<alias
+	match       = "salute"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote brings their fist to their chest in salute.</send>
+	</alias>
+
+	<alias
+	match       = "deepbow *"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote bows deeply in the presence of ~%1.</send>
+	</alias>
+
+	<alias
+	match       = "glanceroom"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote shifts their eyes to survey the room.</send>
+	</alias>
+
+	<alias
+	match       = "smirk"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote smirks.</send>
+	</alias>
+
+	<alias
+	match       = "snicker"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote snickers.</send>
+	</alias>
+
+	<alias
+	match       = "battlecry"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote lets out a piercing battlecry!</send>
+	</alias>
+
+	<alias
+	match       = "hum"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote hums a short melody.</send>
+	</alias>
+
+	<alias
+	match       = "throwdart"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>ep dart
+	throw dart dartboard</send>
+	</alias>
+
+	<alias
+	match       = "reliefsigh"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote lets out a deep sigh of relief.</send>
+	</alias>
+
+	<alias
+	match       = "pose *"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>change ldesc %1</send>
+	</alias>
+
+	<alias
+	match       = "ldesc *"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>change ldesc %1</send>
+	</alias>
+
+	<alias
+	match       = "giggle"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote giggles.</send>
+	</alias>
+
+	<alias
+	match       = "flipoff *"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote raises their middle finger to ~%1.</send>
+	</alias>
+
+	<alias
+	match       = "flex"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote flexes their muscles.</send>
+	</alias>
+
+	<alias
+	match       = "dab"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote ducks their head and dabs.</send>
+	</alias>
+
+	<alias
+	match       = "furiousdab"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote shows off their masculinity by dabbing ferociously on the haters.</send>
+	</alias>
+
+	<alias
+	match       = "grunt"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote lets out a grunt.</send>
+	</alias>
+
+	<alias
+	match       = "diphead"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote dips their head.</send>
+	</alias>
+
+	<alias
+	match       = "wake up"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>wake</send>
+	</alias>
+
+	<alias
+	match       = "stand up"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>stand</send>
+	</alias>
+
+	<alias
+	match       = "nervous"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>hemote @'s eyes dart from side to side and their breathing becomes nervously rapid.</send>
+	</alias>
+
+	<alias
+	match       = "glance *"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>semote glances over at ~%1.</send>
+	</alias>
+
+	<alias
+	match       = "language *"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>change language %1</send>
+	</alias>
+
+	<alias
+	match       = "accent *"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>change accent %1</send>
+	</alias>
+
+	<alias
+	match       = "mood *"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>change mood %1</send>
+	</alias>
+
+	<alias
+	match       = "blink"
+	enabled     = "y"
+	group       = "Social"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>emote blinks.</send>
+	</alias>
+</aliases>
+
+</muclient>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE muclient>
+<muclient>
+
+<!-- INITIALIZATION -->
+
+<plugin
+name         = "Armageddon_Vitals"
+author       = "RiftTalon"
+id           = "48062dcd6b968c590df50f32"
+language     = "Lua"
+purpose      = "Shows stats docked with the Moonlit Sky theme."
+date_written = "2009-02-24 13:30"
+requires     = "5.06"
+version      = "3.0"
+>
+<description trim="y">
+<![CDATA[
+Adds vital bars.
+]]>
+</description>
+</plugin>
+
+<!-- TRIGGERS -->
+
+<triggers>
+	<trigger
+	enabled         = "y"
+	keep_evaluating = "y"
+	match           = "^PROMPT_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_LINETWO$"
+	regexp          = "y"
+	script          = "DoPrompt"
+	sequence        = "8"
+	group           = "Vitals"
+	>
+	</trigger>
+</triggers>
+
+
+<!-- SCRIPTS -->
+
+<script><![CDATA[dofile("worlds/plugins/armageddon/scripts/Armageddon_Vitals.lua")]]></script>
+
+</muclient>

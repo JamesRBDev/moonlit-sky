@@ -1,0 +1,304 @@
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+	body {
+		font-family: 'Inconsolata', monospace;
+		font-size: 18px;
+		color: #bdbdbd;
+		background: black;
+	}
+
+	#center-holder {
+		height: calc(100% - 10px);
+		width: calc(100% - 10px);
+		overflow: auto;
+	  margin: auto;
+	  position: absolute;
+		top: 0; left: 0; bottom: 0; right: 0;
+		box-shadow: 0px 0px 10px #4B4E4E;
+		color: #bdbdbd;
+	}
+
+	#header {
+		width: 100%;
+		height: 160px;
+		background-image: url("worlds/plugins/Armageddon/Images/arma_header.png");
+		background-repeat: none;
+		background-size: cover;
+		background-position: center;
+		box-shadow: 0px 0px 10px #4B4E4E;
+		color: #bdbdbd;
+	}
+
+	.subheader {
+		width: 100%;
+		height: 32px;
+		padding-top: 0px;
+		padding-bottom: 0px;
+		text-align: center;
+		font-size: 32px;
+		background-position: center;
+		background-repeat: no-repeat;
+		color: #bdbdbd;
+	}
+
+	#container {
+		background-color: black;
+		background-image: url("worlds/plugins/Armageddon/Images/arma_background.png");
+		background-position: center;
+		background-size: 100% 100%;
+		width: 100%;
+		height: calc(100% - 160px);
+		min-height: 600px;
+		box-shadow: 0px 0px 10px #4B4E4E;
+		color: #bdbdbd;
+	}
+
+	.page {
+		max-width: 350px;
+		margin-left: auto;
+		margin-right: auto;
+		color: #bdbdbd;
+	}
+
+	@media screen and (min-width: 720px) {
+		.page {
+			max-width: 710px;
+		}
+	}
+
+	#page-2, #page-3, #page-4 {
+		display: none;
+	}
+
+	.text-input {
+		font-family: 'Inconsolata', monospace;
+		font-size: 24px;
+		color: #bdbdbd;
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		max-width: 350px;
+		height: 42px;
+		background: black;
+		border: none;
+		box-shadow: 0px 0px 10px #4B4E4E;
+		text-align: center;
+	}
+
+	#character-name, #character-sdesc, #character-age, #character-origin {
+		max-width: 710px;
+	}
+
+	.next {
+		height: 42px;
+		font-family: 'Inconsolata', monospace;
+		font-size: 24px;
+		color: #bdbdbd;
+		background: black;
+		border: none;
+		width: 100%;
+		box-shadow: 0px 0px 10px #4B4E4E;
+		margin-top: 40px;
+		margin-left: auto;
+		margin-left: auto;
+		text-align: center;
+	}
+
+	#character-description, #character-background {
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 10px;
+		font-family: 'Inconsolata', monospace;
+		font-size: 18px;
+		color: #bdbdbd;
+		background: black;
+		border: none;
+		box-shadow: 0px 0px 10px #4B4E4E;
+		resize: none;
+		width: calc(100% - 4px);
+		background-image: url("https://imageshack.com/a/img924/2879/XHqckZ.png");
+	}
+
+	#finish-code {
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 10px;
+		font-family: 'Inconsolata', monospace;
+		font-size: 18px;
+		color: #bdbdbd;
+		background: black;
+		border: none;
+		box-shadow: 0px 0px 10px #4B4E4E;
+		resize: none;
+		width: calc(100% - 4px);
+	}
+	
+	select {
+		color: #bdbdbd;
+	}
+	
+	option {
+		color: #bdbdbd;
+	}
+</style>
+
+
+
+<div id="center-holder">
+	<div id="header"></div>
+	
+	<div id="container">
+		<div class="page" id="page-1">
+			<br/><hr/><div class="subheader">Character</div><hr/>
+			<span title="Input the first name of your character"><input type="text" class="text-input" id="character-name" placeholder="Character Name"></input></span>
+			<span title="Select your character's gender"><select class="text-input" id="character-gender">
+				<option value="m">Male</option>
+				<option value="f">Female</option>
+			</select></span>
+			<span title="Select your character's race"><select class="text-input" id="character-race">
+				<option value="a">Human</option>
+				<option value="b">City Elf</option>
+				<option value="c">Dwarf</option>
+				<option value="e">Half-Elf</option>
+			</select></span>
+			<span title="Select your primary guild/class"><select class="text-input" id="character-guild">
+				<option value="u">Enforcer</option>
+				<option value="v">Raider</option>
+				<option value="w">Fighter</option>
+				<option value="x">Infiltrator</option>
+				<option value="y">Scout</option>
+				<option value="z">Soldier</option>
+				<option value="aa">Miscreant</option>
+				<option value="ab">Stalker</option>
+				<option value="ac">Laborer</option>
+				<option value="ad">Pilferer</option>
+				<option value="ae">Adventurer</option>
+				<option value="af">Craftsperson</option>
+				<option value="ag">Fence</option>
+				<option value="ah">Dune Trader</option>
+				<option value="ai">Artisan</option>
+			</select></span>
+			<span title="Select your subguild/subclass"><select class="text-input" id="character-subguild">
+				<option value="a">Archer</option>
+				<option value="r">Hunter</option>
+				<option value="d">Armor Crafter</option>
+				<option value="s">Jeweler</option>
+				<option value="e">Bard</option>
+				<option value="u">Linguist</option>
+				<option value="g">Bounty Hunter</option>
+				<option value="w">Mercenary</option>
+				<option value="i">Caravan Guide</option>
+				<option value="y">Nomad</option>
+				<option value="j">Con Artist</option>
+				<option value="a">Outlaw</option>
+				<option value="k">Crafter</option>
+				<option value="ab">Physician</option>
+				<option value="m">Forester</option>
+				<option value="af">Tailor</option>
+				<option value="n">Gladiator</option>
+				<option value="ag">Thief</option>
+				<option value="p">Guard</option>
+				<option value="ah">Thug</option>
+				<option value="q">House Servant</option>
+				<option value="ai">Weaponscrafter</option>
+				<option value="bu">Custom Crafter</option>
+			</select></span>
+			<span title="Example: the tall, muscular man"><input type="text" class="text-input" id="character-sdesc" placeholder="Short Description"></input>
+			<br/><hr/><div class="subheader">Attributes</div><hr/>
+			<span title="Select your primary attribute"><select class="text-input" id="character-att-1">
+				<option value="strength">1. Strength</option>
+				<option value="endurance">1. Endurance</option>
+				<option value="agility">1. Agility</option>
+				<option value="wisdom">1. Wisdom</option>
+			</select></span>
+			<span title="Select your secondary attribute"><select class="text-input" id="character-att-2">
+				<option value="endurance">2. Endurance</option>
+				<option value="strength">2. Strength</option>
+				<option value="agility">2. Agility</option>
+				<option value="wisdom">2. Wisdom</option>
+			</select></span>
+			<span title="Select your tertiary attribute"><select class="text-input" id="character-att-3">
+				<option value="agility">3. Agility</option>
+				<option value="strength">3. Strength</option>
+				<option value="endurance">3. Endurance</option>
+				<option value="wisdom">3. Wisdom</option>
+			</select></span>
+			<span title="Select your quaternary attribute"><select class="text-input" id="character-att-4">
+				<option value="wisdom">4. Wisdom</option>
+				<option value="strength">4. Strength</option>
+				<option value="endurance">4. Endurance</option>
+				<option value="agility">4. Agility</option>
+			</select></span>
+			<button class="next" id="next-1" type="button" onclick="next()">Continue</button>
+		</div>
+		<div class="page" id="page-2">
+			<br/><hr/><div class="subheader">Appearance</div><hr/>
+			<span title="Enter your character's age"><input type="number" class="text-input" id="character-age" placeholder="Age (Years)"></input></span>
+			<span title="Enter the height of your character in inches"><input type="number" class="text-input" id="character-height" placeholder="Height (Inches)"></input></span>
+			<span title="Enter the weight of your character in pounds"><input type="number" class="text-input" id="character-weight" placeholder="Weight (Pounds)"></input></span>
+			<br/><hr/><div class="subheader">Description</div><hr/>
+			<span title="Enter a physical description for your character, minimum of four lines, and the lines may not go past the red line"><textarea id="character-description" col="77" rows="15"></textarea></span>
+			<button class="next" id="next-2" type="button" onclick="next()">Continue</button>
+		</div>
+		<div class="page" id="page-3">
+			<br/><hr/><div class="subheader">Background</div><hr/>
+			<span title="Where your character grew up"><select class="text-input" id="character-origin">
+				<option value="a">Allanak</option>
+				<option value="b">Tuluk</option>
+				<option value="d">Red Storm Village</option>
+				<option value="c">Luir's Outpost</option>
+				<option value="f">Nomadic</option>
+				<option value="e">The Labyrinth</option>
+			</select></span>
+			<span title="Type in information about your character's personality and past, minimum of four lines, and the lines may not go past the red line"><textarea id="character-background" col="77" rows="15"></textarea></span>
+			<button class="next" id="next-3" type="button" onclick="next()">Finish</button>
+		</div>
+		<span title=""><div class="page" id="page-4">
+			<br/><hr/><div class="subheader">Creation Code</div><hr/>
+			<p style="text-align:center;">Copy the contents of the box below and paste them into the character creation screen of ArmageddonMUD. ([r] from the main menu)</p>
+			<span title="This is the code for creating your character"><textarea readonly="true" id="finish-code" col="77" rows="25"></textarea></span>
+		</div>
+	</div>
+</div>
+
+
+
+<script>
+	var current = 1;
+	var last    = 3;
+
+	function finish() {
+		var newText = document.getElementById("character-name").value;
+		newText += "\n" + document.getElementById("character-gender").value;
+		newText += "\n" + document.getElementById("character-race").value;
+		newText += "\n" + document.getElementById("character-guild").value;
+		newText += "\n" + document.getElementById("character-subguild").value;
+		newText += "\n" + document.getElementById("character-att-1").value;
+		newText += " " + document.getElementById("character-att-2").value;
+		newText += " " + document.getElementById("character-att-3").value;
+		newText += " " + document.getElementById("character-att-4").value;
+		newText += "\n" + document.getElementById("character-description").value + "\n.q";
+		newText += "\n" + document.getElementById("character-sdesc").value;
+		newText += "\n" + document.getElementById("character-height").value;
+		newText += "\n" + Math.floor(((document.getElementById("character-weight").value * 0.453) / 10) + 0.5);
+		newText += "\n" + document.getElementById("character-age").value;
+		newText += "\n" + document.getElementById("character-origin").value;
+		newText += "\n" + document.getElementById("character-background").value + "\n.q";
+		
+		document.getElementById("finish-code").value = newText;
+	}
+
+	function next() {
+		document.getElementById("page-" + current).style.display = "none";
+		current += 1;
+		console.log(current);
+		document.getElementById("page-" + current).style.display = "block";
+		console.log("w");
+		
+		if (current > last) {
+			finish();
+		}
+	}
+</script>

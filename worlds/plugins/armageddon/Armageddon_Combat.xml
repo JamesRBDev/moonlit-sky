@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<muclient>
+
+<!-- INITIALIZATION -->
+
+<plugin
+name         = "Armageddon_Combat"
+author       = "RiftTalon"
+id           = "439dfc99f8cd47765d9c3740"
+language     = "Lua"
+purpose      = "Adds commands for more manageable combat."
+date_written = "2017-11-26 13:52:02"
+requires     = "5.06"
+version      = "3.0"
+>
+<description trim="y">
+<![CDATA[
+Adds new commands relating to combat.
+]]>
+</description>
+</plugin>
+
+<include name="constants.lua"/>
+
+<!-- ALIASES -->
+
+<aliases>
+	<alias
+	match       = "qshoot * *"
+	enabled     = "y"
+	group       = "Combat"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>pull quiver arrow
+	shoot %1 %2</send>
+	</alias>
+
+	<alias
+	match       = "cshoot * *"
+	enabled     = "y"
+	group       = "Combat"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>pull quiver bolt
+	load crossbow bolt
+	shoot %1 %2</send>
+	</alias>
+
+	<alias
+	match       = "qthrow * * *"
+	enabled     = "y"
+	group       = "Combat"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>ep %1
+	throw %1 %2 %3</send>
+	</alias>
+
+	<alias
+	match       = "attack *"
+	enabled     = "y"
+	group       = "Combat"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>kill %1</send>
+	</alias>
+
+	<alias
+	match       = "spar *"
+	enabled     = "y"
+	group       = "Combat"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>mercy on
+	kill %1</send>
+	</alias>
+
+	<alias
+	match       = "nospar"
+	enabled     = "y"
+	group       = "Combat"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>stop
+	disengage
+	mercy off</send>
+	</alias>
+
+	<alias
+	match       = "target *"
+	enabled     = "y"
+	group       = "Combat"
+	ignore_case = "y"
+	sequence    = "100"
+	>
+	<send>change opponent %1</send>
+	</alias>
+</aliases>
+
+</muclient>

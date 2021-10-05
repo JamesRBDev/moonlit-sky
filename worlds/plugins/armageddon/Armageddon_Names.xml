@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<muclient>
+
+<!-- INITIALIZATION -->
+
+<plugin
+name         = "Armageddon_Names"
+author       = "RiftTalon"
+id           = "702dafea573df8dc0dcd4189"
+language     = "Lua"
+purpose      = "Replaces SDescs with character names."
+save_state   = "y"
+date_written = "2018-04-17 12:58:11"
+requires     = "5.06"
+version      = "3.0"
+>
+</plugin>
+
+<include name="constants.lua"/>
+
+<!-- TRIGGERS -->
+
+<triggers></triggers>
+
+<!-- ALIASES -->
+
+<aliases>
+	<alias
+	match       = "addname * as *"
+	enabled     = "y"
+	group       = "Names"
+	ignore_case = "y"
+	send_to     = "14"
+	sequence    = "100"
+	>
+	<send>AddName("%1", "%2")</send>
+	</alias>
+	
+	<alias
+	match       = "addname * : *"
+	enabled     = "y"
+	group       = "Names"
+	ignore_case = "y"
+	send_to     = "14"
+	sequence    = "100"
+	>
+	<send>AddName("%1", "%2")</send>
+	</alias>
+
+	<alias
+	match       = "listnames"
+	enabled     = "y"
+	group       = "Names"
+	ignore_case = "y"
+	send_to     = "14"
+	sequence    = "100"
+	>
+	<send>ListNames()</send>
+	</alias>
+
+	<alias
+	match       = "removename *"
+	enabled     = "y"
+	group       = "Names"
+	ignore_case = "y"
+	send_to     = "14"
+	sequence    = "100"
+	>
+	<send>RemoveName(%1)</send>
+	</alias>
+	
+	<alias
+	match       = "removename #*"
+	enabled     = "y"
+	group       = "Names"
+	ignore_case = "y"
+	send_to     = "14"
+	sequence    = "100"
+	>
+	<send>RemoveName(%1)</send>
+	</alias>
+</aliases>
+
+<!-- VARAIBLES -->
+
+<variables></variables>
+
+<!-- SCRIPTS -->
+
+<script><![CDATA[dofile("worlds/plugins/armageddon/scripts/Armageddon_Names.lua")]]></script>
+
+</muclient>

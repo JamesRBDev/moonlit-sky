@@ -1,0 +1,1096 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<muclient>
+
+<!-- INITIALIZATION -->
+
+<plugin
+name         = "Armageddon_Map"
+author       = "RiftTalon"
+id           = "41342af189d84174da889704"
+language     = "Lua"
+purpose      = "An interactive map for Armageddon."
+save_state   = "y"
+date_written = "2017-12-07 21:34:39"
+requires     = "5.06"
+version      = "3.0"
+>
+<description trim="y">
+<![CDATA[
+Adds a fully-functioning minimap in the top-right corner.
+]]>
+</description>
+</plugin>
+
+<include name="constants.lua"/>
+
+<!-- TRIGGERS -->
+
+<triggers>
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match=" \[([^_]+)\]$"
+	regexp="y"
+	script="Compass"
+	sequence="8"
+	>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="*Welcome to Armageddon!*"
+	group="Core"
+	send_to="12"
+	ignore_case="n"
+	sequence="100"
+	>
+	<send>ToggleMapping(false)</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="Reconnected."
+	group="Core"
+	send_to="12"
+	ignore_case="n"
+	sequence="100"
+	>
+	<send>ToggleMapping(true)</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="Welcome to the world of Zalanthas."
+	group="Core"
+	send_to="12"
+	ignore_case="n"
+	sequence="100"
+	>
+	<send>ToggleMapping(true)</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="You can't see a thing; sand swirls about you!"
+	script="Compass"
+	sequence="8"
+	>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	keep_evaluating="y"
+	match="Darkness"
+	script="Compass"
+	sequence="8"
+	>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="Alas, you cannot go that way."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You are too relaxed to do that."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You cannot go *, there is no exit that way."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="*I'm sorry, you aren't renting an apartment here.*"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="*You are not allowed within the Nobles Quarter.*"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="The doors seem to be closed."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="The door seems to be closed."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="The doors seems to be closed."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="The gates seems to be closed."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="The gate seems to be closed."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="The gates seem to be closed."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="* frowns, stepping in front of you."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="* blocks you from going through the * exit."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You cannot go '*', there is no exit that way."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="*Nobles and their guests only.*"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You attempt to walk, but trip and fall on your face."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You're fighting for your life!"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="Maybe you should get on your feet first."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You feel too relaxed to do that."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You are too exhausted."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="The curtain seems to be closed."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="The curtains seem to be closed."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="But you're not inside anything."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You try to enter * but find the gates closed."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You follow *, and * north."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("North")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You follow *, and * south."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("South")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You follow *, and * east."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("East")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You follow *, and * west."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("West")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="*You flee, heading north.*"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>SetVariable("grid_y", GetVariable("grid_y") - 1)</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="*You flee, heading south.*"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>SetVariable("grid_y", GetVariable("grid_y") + 1)</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="*You flee, heading east.*"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>SetVariable("grid_x", GetVariable("grid_x") + 1)</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="*You flee, heading west.*"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>SetVariable("grid_x", GetVariable("grid_x") - 1)</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="* walks north, dragging you behind *."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("North")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="* walks east, dragging you behind *."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("East")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="* walks south, dragging you behind *."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("South")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="* walks west, dragging you behind *."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("West")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="* roughly shoves you north."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("North")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="* roughly shoves you east."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("East")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="* roughly shoves you south."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("South")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="* roughly shoves you west."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("West")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="*You step out to..."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("Leave")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You enter a *"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("Enter")</send>
+	</trigger>
+
+	<trigger
+	enabled="y"
+	match="Wave Dunes [*]"
+	group="Map"
+	send_to="12"
+	ignore_case="n"
+	sequence="100"
+	>
+	<send>SetCurrentTile("Dunes")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="Crescent Dunes [*]"
+	group="Map"
+	send_to="12"
+	ignore_case="n"
+	sequence="100"
+	>
+	<send>SetCurrentTile("Dunes")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="Scoria Plains [*]"
+	group="Map"
+	send_to="12"
+	ignore_case="n"
+	sequence="100"
+	>
+	<send>SetCurrentTile("Plains")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="Scoria Plains Edge [*]"
+	group="Map"
+	send_to="12"
+	ignore_case="n"
+	sequence="100"
+	>
+	<send>SetCurrentTile("Plains")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="* a Star Dune [*]"
+	group="Map"
+	send_to="12"
+	ignore_case="n"
+	sequence="100"
+	>
+	<send>SetCurrentTile("Dunes")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="Salt Flats [*]"
+	group="Map"
+	send_to="12"
+	ignore_case="n"
+	sequence="100"
+	>
+	<send>SetCurrentTile("Salt")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="Beginning of Salt Flats [*]"
+	group="Map"
+	send_to="12"
+	ignore_case="n"
+	sequence="100"
+	>
+	<send>SetCurrentTile("Salt")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="Rocky Wasteland [*]"
+	group="Map"
+	send_to="12"
+	ignore_case="n"
+	sequence="100"
+	>
+	<send>SetCurrentTile("Wasteland")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="Arid Plains [*]"
+	group="Map"
+	send_to="12"
+	ignore_case="n"
+	sequence="100"
+	>
+	<send>SetCurrentTile("Arid")</send>
+	</trigger>
+</triggers>
+
+<!-- ALIASES -->
+
+<aliases>
+	<alias
+	match="printGrid"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>PrintGrid()</send>
+	</alias>
+	
+	<alias
+	match="togglemapping"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>ToggleMapping()</send>
+	</alias>
+	
+	<alias
+	match="north"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Send("North") MoveMade("North")</send>
+	</alias>
+	
+	<alias
+	match="south"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Send("South") MoveMade("South")</send>
+	</alias>
+	
+	<alias
+	match="east"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Send("East") MoveMade("East")</send>
+	</alias>
+	
+	<alias
+	match="west"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Send("West") MoveMade("West")</send>
+	</alias>
+	
+	<alias
+	match="n"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Send("N") MoveMade("North")</send>
+	</alias>
+	
+	<alias
+	match="s"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Send("S") MoveMade("South")</send>
+	</alias>
+	
+	<alias
+	match="e"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Send("E") MoveMade("East")</send>
+	</alias>
+	
+	<alias
+	match="w"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Send("W") MoveMade("West")</send>
+	</alias>
+	
+	<alias
+	match="setGrid * *"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>SetGrid(%1, %2)</send>
+	</alias>
+	
+	<alias
+	match="look"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Send("Look") PrintGrid()</send>
+	</alias>
+	
+	<alias
+	match="maplist"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>ListMaps()</send>
+	</alias>
+	
+	<alias
+	match="map *"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>ChangeMap("%1")</send>
+	</alias>
+	
+	<alias
+	match="shift n*"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>ChangeGridY(-1, true) PrintGrid()</send>
+	</alias>
+	
+	<alias
+	match="shift s*"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>ChangeGridY(1, true) PrintGrid()</send>
+	</alias>
+	
+	<alias
+	match="shift e*"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>ChangeGridX(1, true) PrintGrid()</send>
+	</alias>
+	
+	<alias
+	match="shift w*"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>ChangeGridX(-1, true) PrintGrid()</send>
+	</alias>
+	
+	<!-- Using the `toggleexplore` command gets you banned -->
+	<alias
+	match="toggleexplore"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>ToggleExplore()</send>
+	</alias>
+	
+	<!--<alias
+	match="enter*"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Send("Enter%1") MoveMade("Enter")</send>
+	</alias>-->
+	
+	<!--<alias
+	match="leave*"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Send("Leave%1") MoveMade("Leave")</send>
+	</alias>-->
+	
+	<alias
+	match="up"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Send("Up") MoveMade("Up")</send>
+	</alias>
+	
+	<alias
+	match="down"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Send("Down") MoveMade("Down")</send>
+	</alias>
+	
+	<alias
+	match="printMap"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Note(getMapText())</send>
+	</alias>
+	
+	<alias
+	match="copyMap"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>SetClipboard(getMapText())</send>
+	</alias>
+	
+	<alias
+	match="tile *"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Add("%1")</send>
+	</alias>
+	
+	<alias
+	match="tile * * *"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="99"
+	>
+	<send>Add("%1", %2, %3)</send>
+	</alias>
+	
+	<alias
+	match="cTile"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Clear()</send>
+	</alias>
+	
+	<alias
+	match="cTile * *"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Clear(%1, %2)</send>
+	</alias>
+	
+	<alias
+	match="palette"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>TogglePalette()</send>
+	</alias>
+	
+	<alias
+	match="atile"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>AutoTile()</send>
+	</alias>
+	
+	<alias
+	match="importmap *"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Import("%1")</send>
+	</alias>
+	
+	<alias
+	match="mapsize *"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MapSize(%1)</send>
+	</alias>
+	
+	<alias
+	match="addrows * *"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>AddRows(%1, "%2")</send>
+	</alias>
+	
+	<alias
+	match="addcolumns * *"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>AddColumns(%1, "%2")</send>
+	</alias>
+	
+	<alias
+	match="maptoken *"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>SetToken("%1")</send>
+	</alias>
+	
+	<alias
+	match="tokenlist"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>TokenList()</send>
+	</alias>
+	
+	<alias
+	match="stop"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>Send("stop")
+	StopMove()</send>
+	</alias>
+	
+	<alias
+	match="makemoves"
+	enabled="y"
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MakeMoves()</send>
+	</alias>
+</aliases>
+
+<!-- VARIABLES -->
+
+<variables></variables>
+
+<!-- SCRIPTS -->
+
+<script><![CDATA[dofile("worlds/plugins/armageddon/scripts/Armageddon_Map.lua")]]></script>
+
+</muclient>

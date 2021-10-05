@@ -1,0 +1,366 @@
+<?xml version= "1.0" encoding= "iso-8859-1"?>
+<!DOCTYPE muclient>
+<muclient>
+
+<!-- INITIALIZATION -->
+
+<plugin
+name         = "Armageddon_Colored_Mantis"
+author       = "RiftTalon"
+id           = "6a97738dd51ae1ab1997e87f"
+language     = "Lua"
+purpose      = "Changes the color of the main menu mantis."
+date_written = "2017-07-22 15:43:06"
+requires     = "5.06"
+version      = "3.0"
+>
+<description trim="y">
+<![CDATA[
+Simply recolors the mantis in the main menu.
+]]>
+</description>
+</plugin>
+
+<include name="constants.lua"/>
+
+<!-- TRIGGERS -->
+
+<triggers>
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\~\-       \_\_\-\-\~\`\_    \/   \_\-\~         \~\.     \~\_"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\-\~        \\     \_\~       \_\_\_\,  \\ \~\-\_  \\"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\,\~ \_\-\,       \~  \_\~         \\   \\  \| \, \\ \\"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\/ \/\~\/      \-\~   \/            \~  \/  \/  \\\~  \\"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\_\_\_\_\_\_\_                                \_\_\_"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\/\\\\\_\_\_\_\_\/\/\~\-\_                        \_\-\~\\\\\_\_"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\| \| \\     \_\~    \|        \_\_\-\~  \/ \_\/  \\\~  \'\\"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\\ \~\-\_\~   \-   \|  \_      \~\-\_\_\_\_\-\~ \.\~  \\\~    \|"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\/\`\.  \_\_\~\~   \~   \`\_          \_\_\-\~   \\\~    \\\~"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\\\_ \~\~   \.  \|  \.   \~\-\_\_\_\_\-\-\~\~   \\ \\\_\~   \_\/\~"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\/\\\_\_\_\-\-\~       \~\-\-\_      \/   \_\_\_\_\~ \_\/\~\~"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\\         \/        \~\~\~\_\_\_  \/     \_\-\\\\\~\\"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\/\\       \/                   \_\-\\\~\\\\\~\\\\\~\\"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\/ \| \\   \\ \| \/    \/         \_\-\~ \)\\\\\~\\\\\~\\\\\~\~\\"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\{ \/\\ \\             \/      \_\~ \\  \~\`\~\~\\\\\~\~\\\\\~\~\\"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\{ \|\\     \_\_ \_           \_\-\\   \\  \\\\\~\~\\\\\~\~\\\\\~\~\\"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\| \|\|\~\_ \/\`    \~\\  \/    \_\/\~  \)   \| \|\\\\\~\~\\\\\~\~\\\\\~\~"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\| \|\|  \\\|\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\|\_ \_\_\-\~     \;   \| \|\~\\\\\~\~\\\\\~\~\\\\\~"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\\ \\\\  \(\{\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\}\\\\        \_\~  \/  \/\~\~\\\\\~\~\\\\\~\~\\\\"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\(\~\)       \~\-\_ \~\-\_                  \_\-\~ \_\-\~"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\(\~\)           \~\-\_ \~\-\_            \_\-\~ \/\-\~"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\(\~\)              \`\~\-\_ \~\_\=\=\=\=\=\=\_\-\-\~\~ \_\_\~"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\(\~\)               \_\~\_\\\_\_\\\_\_\_\_\/\_\_\/\_\-\-\\ \~\`\-\_"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+
+	<trigger
+	custom_colour     = "10"
+	enabled           = "y"
+	group             = "Highlighted Words"
+	ignore_case       = "y"
+	keep_evaluating   = "y"
+	match             = "\\           \_\-\~\~            \_\-\~\~\~\-\_ \\\_  \~\-\_"
+	regexp            = "y"
+	repeat            = "y"
+	sequence          = "90"
+	other_text_colour = "silver"
+	>
+	</trigger>
+</triggers>
+
+</muclient>
