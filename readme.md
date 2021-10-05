@@ -6,7 +6,7 @@ The Moonlit Sky MUSHclient package was designed as a plugin suite for the multi-
 
 There are a few necessary steps before you can hop right into the game. Read on!
 
-1. Download the client .zip file from the Github releases section. (linkHERE)
+1. Download the client .zip file from the Github releases section. (https://github.com/JamesRBDev/moonlit-sky/releases)
 2. Extract the contents into your Documents folder.
 3. Once extracted, double-click the `Armageddon.exe` file to run the client. You can also create a shortcut of it for easier access. If the client says that a file is read-only or needs write permission, try running it as an administrator.
 4. Under `File`, click `Open World` and select `Armageddon.mcl` to start up the world. This will connect you to Armageddon.
