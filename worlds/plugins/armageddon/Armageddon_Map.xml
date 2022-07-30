@@ -343,6 +343,17 @@ Adds a fully-functioning minimap in the top-right corner.
 	
 	<trigger
 	enabled="y"
+	match="The movement of * makes you lose your balance, and you fall over the side."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
 	match="You try to enter * but find the gates closed."
 	group="Map"
 	send_to="12"
@@ -350,6 +361,50 @@ Adds a fully-functioning minimap in the top-right corner.
 	sequence="100"
 	>
 	<send>UndoMove()</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You drive * north..."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("North")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You drive * south..."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("South")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You drive * east..."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("East")</send>
+	</trigger>
+	
+	<trigger
+	enabled="y"
+	match="You drive * west..."
+	group="Map"
+	send_to="12"
+	ignore_case="y"
+	sequence="100"
+	>
+	<send>MoveMade("West")</send>
 	</trigger>
 	
 	<trigger
