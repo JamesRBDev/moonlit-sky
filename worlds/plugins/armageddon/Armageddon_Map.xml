@@ -970,7 +970,7 @@ Adds a fully-functioning minimap in the top-right corner.
 	ignore_case="y"
 	sequence="100"
 	>
-	<send>Note(getMapText())</send>
+	<send>Note(GetMapText())</send>
 	</alias>
 	
 	<alias
@@ -981,7 +981,7 @@ Adds a fully-functioning minimap in the top-right corner.
 	ignore_case="y"
 	sequence="100"
 	>
-	<send>SetClipboard(getMapText())</send>
+	<send>SetClipboard(GetMapText())</send>
 	</alias>
 	
 	<alias
